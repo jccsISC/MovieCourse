@@ -1,13 +1,13 @@
 package com.jccsisc.jpelisc.repository
 
 import com.jccsisc.jpelisc.data.model.MovieList
-import com.jccsisc.jpelisc.data.remote.MovieDataSource
+import com.jccsisc.jpelisc.data.remote.RemoteMovieDataSource
 
-class MovieRepositoryImpl(private val dataSource: MovieDataSource): MovieRepository {
+class MovieRepositoryImpl(private val dataSourceRemote: RemoteMovieDataSource): MovieRepository {
 
-    override suspend fun getUpcomingMovies(): MovieList = dataSource.getUpComingMovies()
+    override suspend fun getUpcomingMovies(): MovieList = dataSourceRemote.getUpComingMovies()
 
-    override suspend fun getTopRatedMovies(): MovieList = dataSource.getTopRatedMovies()
+    override suspend fun getTopRatedMovies(): MovieList = dataSourceRemote.getTopRatedMovies()
 
-    override suspend fun getPopularMovies(): MovieList = dataSource.getPopularMovies()
+    override suspend fun getPopularMovies(): MovieList = dataSourceRemote.getPopularMovies()
 }

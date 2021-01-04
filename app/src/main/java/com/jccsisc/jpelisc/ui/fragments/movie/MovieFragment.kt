@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ConcatAdapter
 import com.jccsisc.jpelisc.R
 import com.jccsisc.jpelisc.core.MyResource
 import com.jccsisc.jpelisc.data.model.Movie
-import com.jccsisc.jpelisc.data.remote.MovieDataSource
+import com.jccsisc.jpelisc.data.remote.RemoteMovieDataSource
 import com.jccsisc.jpelisc.databinding.FragmentMovieBinding
 import com.jccsisc.jpelisc.presentation.MovieViewModel
 import com.jccsisc.jpelisc.presentation.MovieViewModelFactory
@@ -25,7 +25,7 @@ import com.jccsisc.jpelisc.ui.fragments.movie.adapter.concat.UpcomingConcatAdapt
 class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieClickListener {
 
     private lateinit var binding: FragmentMovieBinding
-    private val viewModel by viewModels<MovieViewModel> { MovieViewModelFactory(MovieRepositoryImpl(MovieDataSource(RetrofitClient.webService))) }
+    private val viewModel by viewModels<MovieViewModel> { MovieViewModelFactory(MovieRepositoryImpl(RemoteMovieDataSource(RetrofitClient.webService))) }
     private lateinit var concatAdapter: ConcatAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
