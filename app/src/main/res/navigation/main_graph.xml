@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/movieFragment"
         android:name="com.jccsisc.jpelisc.ui.fragments.movie.MovieFragment"
-        android:label="fragment_movie"
+        android:label="Home Películas"
         tools:layout="@layout/fragment_movie" >
         <action
             android:id="@+id/action_movieFragment_to_movieDetailFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.jccsisc.jpelisc.ui.fragments.moviedetail.MovieDetailFragment"
-        android:label="fragment_movie_detail"
+        android:label="Detalle de la Película"
         tools:layout="@layout/fragment_movie_detail" >
         <argument
             android:name="posterImageUrl"

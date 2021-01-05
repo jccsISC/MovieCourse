@@ -13,6 +13,6 @@ interface MovieDao {
     suspend fun getAllMovies(): List<MovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE) //si ya existe el elemento lo reemplaza
-    suspend fun saveMovie(movieEntity: MovieEntity)
+    suspend fun saveMovie(movie: MovieEntity)
 
 }

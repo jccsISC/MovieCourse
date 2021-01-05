@@ -18,10 +18,7 @@ abstract class AppDataBase: RoomDatabase() {
 
         fun getDataBase(context: Context): AppDataBase {
 
-            INSTANCE = INSTANCE ?: Room.databaseBuilder(
-                context.applicationContext,
-                AppDataBase::class.java, "movie_table"
-            ).build()
+            INSTANCE = INSTANCE ?: Room.databaseBuilder(context.applicationContext, AppDataBase::class.java, "movie_table").build()
             return INSTANCE!!
         }
 

@@ -26,7 +26,6 @@ data class MovieList(val results: List<Movie> = listOf())
 
 
 //Room
-
 @Entity
 data class MovieEntity(
     @PrimaryKey
@@ -63,11 +62,12 @@ data class MovieEntity(
 //extension function transformar una lista a otra
 fun List<MovieEntity>.toMovieList(): MovieList {
     val resultList = mutableListOf<Movie>()
-    this.forEach { resultList.add(it.toMovie()) }
+    this.forEach { movieEntity ->
+        resultList.add(movieEntity.toMovie())
+    }
 
     return MovieList(resultList)
 }
-
 
 fun MovieEntity.toMovie(): Movie = Movie (
     this.id,
@@ -84,4 +84,22 @@ fun MovieEntity.toMovie(): Movie = Movie (
     this.vote_average,
     this.vote_count,
     this.movie_type
+)
+
+//tranformar una peli a movieEntity
+fun Movie.toMovieEntity(movieType: String): MovieEntity = MovieEntity(
+    this.id,
+    this.adult,
+    this.backdrop_path,
+    this.original_title,
+    this.original_language,
+    this.overview,
+    this.popularity,
+    this.poster_path,
+    this.release_date,
+    this.title,
+    this.video,
+    this.vote_average,
+    this.vote_count,
+    movie_type = movieType
 )
